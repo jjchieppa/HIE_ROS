@@ -1,5 +1,5 @@
   library(piecewiseSEM); library(nlme)
-setwd("F:/Dropbox backup/HIE PhD/Data/Thesis analyses/ROS/Formal Analysis/Manuscript Analysis")
+# setwd("F:/Dropbox backup/HIE PhD/Data/Thesis analyses/ROS/Formal Analysis/Manuscript Analysis")
 # rm(list=ls()); dev.off(); cat("\f") # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 dat<-read.csv("ROS competition data all.csv")
@@ -7,7 +7,7 @@ dat<-subset(dat, Phase != "Control")
 dat$CompEff_standard<-dat$CompEff_standard+1.590966
 
 # dat<-subset(dat, Experiment == "Double") #SLD
-dat<-subset(dat, Species == "Fes") #FRP
+# dat<-subset(dat, Species == "Fes") #FRP
 dat$x<-(dat$Ht_mm)
 dat$y<-(dat$CompEff_standard)
 
