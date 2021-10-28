@@ -4,12 +4,12 @@ rm(list=ls()) # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 dev.off()     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 cat("\f")     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-df<-read.csv("ROS competition data all.csv")
-df<-subset(df, Phase != "Control")
+df<-read.csv("ROS_competition_data_all.csv")
+# df<-subset(df, Phase != "Control")
 
-df<-subset(df, Experiment == "Double")
-df$x<-df$Ht_mm
-# df<-subset(df, Species == "Rye")
+df<-subset(df, Experiment == "Long")
+df$x<-df$LDMC_mg.g
+# df<-subset(df, Species == "Fes")
 
 df<-df[complete.cases(df$x),]
 
