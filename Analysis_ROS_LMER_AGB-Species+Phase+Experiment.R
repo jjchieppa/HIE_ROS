@@ -1,22 +1,28 @@
-library(doBy); library(plotrix); library(lme4)
-library(lmerTest); library(multcomp); library(car)
-library(MuMIn)
-setwd("F:/Dropbox backup/HIE PhD/Data/Thesis analyses/ROS/Formal Analysis/Manuscript Analysis")
-# rm(list=ls()); dev.off(); cat("\f") # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
-cat("\f")
+# in data ####
+library(doBy); library(plotrix); library(emmeans)
+library(multcomp); library(car); library(lme4)
+library(MuMIn); library(effects); library(lmerTest)
+library(pbkrtest)
 
-dat<-read.csv("ROS data all.csv"); dat<-subset(dat, Experiment == "Double")
-df<-subset(dat, Species == "Rye")
+rm(list=ls()) # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+dev.off()     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+cat("\f")     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-leveneTest(log(AGB_g) ~ Phase * Type, center = mean, df)
+df<-read.csv("ROS_data_all.csv")
+df$Shelter<-as.factor(df$Shelter)
 
+# select and run ####
+df<-subset(df, Species == "Rye" & Experiment == "Double")
+df$x<-(df$Ht_mm)
 
-m1<-lmer(log(AGB_g) ~ Phase * Type + (1|Shelter), REML = T, df)
-r.squaredGLMM(m1)
-anova(m1, ddf = "Kenward-Roger")
+# leveneTest((x) ~ Phase * Type, center = mean, df)
 
-df$trt<-with(df, interaction(Phase,Type))
-m1<-lmer(log(AGB_g) ~ trt + (1|Shelter), REML = T, df)
-tuk1<-summary(glht(m1, linfct = mcp(trt = "Tukey")))
-new1<-summary(tuk1, test = adjusted("single-step"))
-cld(new1)
+m1<-lmer((x) ~ Phase * Type + (1|Shelter), REML = T, df)
+round(r.squaredGLMM(m1),2)
+round(anova(m1, ddf = "Kenward-Roger"),3)
+
+# cld(emmeans(m1, ~ Phase:Type, tran = "response")) #transforms before pval
+cld(emmeans(m1, ~ Phase, type = "response")) #transforms after pval calculation
+r<-residuals(m1)
+shapiro.test(r)
+# hist(r)
