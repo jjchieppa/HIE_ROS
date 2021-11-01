@@ -5,7 +5,7 @@ rm(list=ls()) # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 dev.off()     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 cat("\f")     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
-dat<-read.csv("ROS competition data all.csv")
+dat<-read.csv("ROS_competition_data_all.csv")
 dat<-summaryBy(CompEffect ~ Species * Phase * Experiment, FUN = c(mean, std.error), na.rm = T, dat)
 # start ####
 tiff(file = "ROS_CompEffects-Species+Phase+Experiment.tiff", height = 6.5, width = 10, res = 400, units = "in", compression = "zip+p")
@@ -35,8 +35,8 @@ ablineclip(v = 3, y1 = as.numeric(df$CompEffect.mean-df$CompEffect.std.error), y
 text(3, 0.8, cex = 1.75, "b")
 text(0.1, 0.75, "a)", cex = 2)
 
-mtext(side = 2, "Increasing Competitive Effect", outer = T, cex = 1.15, padj = -5.25)
-mtext(side = 2, "(i.e. Negative Effects of Competition on Aboveground Productivity)", outer = T, cex = 1.15, padj = -3.75)
+mtext(side = 2, " Competitive Effect (log ratio)", outer = T, cex = 1.15, padj = -5.25)
+mtext(side = 2, "(i.e. More positive indicates greater negative effects from competition)", outer = T, cex = 1, padj = -4.25)
 
 # b pha short ####
 

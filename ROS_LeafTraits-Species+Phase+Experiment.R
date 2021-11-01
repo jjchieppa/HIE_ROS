@@ -355,7 +355,7 @@ dum<-subset(hold, Experiment == "Double" & Species == "Fes" & Type == "Mix")
 par(new=T)
 plotCI(02, dum$SLA_mm2.mg.mean, dum$SLA_mm2.mg.std.error, err="y", pch = 16, col = "black",
        xlim = c(0,3), ylim = c(18,23), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
-text(1.5, 24, "*", cex = 2)
+text(1.5, 22.6, "*", cex = 2)
 
 par(mar = c(1,0,1,0))
 
@@ -1205,7 +1205,7 @@ legend("top", pch = c(NA,1,0,2,NA,NA,16,15,17), horiz = F, xpd = T, inset = c(0,
          expression(italic(Phalaris)),
          expression(italic(Lolium)),
          "",
-         "With Compeition",
+         "With Competition",
          expression(italic(Festuca)),
          expression(italic(Phalaris)),
          expression(italic(Lolium))))
