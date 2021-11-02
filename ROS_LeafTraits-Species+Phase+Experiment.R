@@ -11,8 +11,8 @@ mix<-subset(df, PotType == "FesMix" | PotType == "RyeMix" | PotType == "PhaMix")
 rm(df)
 source<-read.csv("ROS_data_all.csv")
 
-sin<-summaryBy(SLA_mm2.mg + LDMC_mg.g + Ht_mm ~ Experiment + Phase + Species, FUN = c(mean, std.error), na.rm = T, sin)
-mix<-summaryBy(SLA_mm2.mg + LDMC_mg.g + Ht_mm ~ Experiment + Phase + Species, FUN = c(mean, std.error), na.rm = T, mix)
+sin<-summaryBy(SLA_mm2.mg + LDMC_mg.g + Ht_cm ~ Experiment + Phase + Species, FUN = c(mean, std.error), na.rm = T, sin)
+mix<-summaryBy(SLA_mm2.mg + LDMC_mg.g + Ht_cm ~ Experiment + Phase + Species, FUN = c(mean, std.error), na.rm = T, mix)
 
 # start ####
 
@@ -840,116 +840,116 @@ axis(2, at = seq(0,400,50), las = 2, cex.axis = 1.2)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Control" & Experiment == "Short")
 par(new=T)
-plotCI(01, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "dodgerblue4",
+plotCI(01, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Control" & Experiment == "Short")
 par(new=T)
-plotCI(01, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "dodgerblue4",
+plotCI(01, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Resistance" & Experiment == "Short")
 par(new=T)
-plotCI(02, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "firebrick",
+plotCI(02, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Resistance" & Experiment == "Short")
 par(new=T)
-plotCI(02, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "firebrick",
+plotCI(02, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Recovery" & Experiment == "Short")
 par(new=T)
-plotCI(03, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "orange3",
+plotCI(03, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Recovery" & Experiment == "Short")
 par(new=T)
-plotCI(03, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "orange3",
+plotCI(03, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 legend("topleft", "g)", bty = "n", cex = 1.2)
 
 mtext(side = 2, cex = 1.2, expression(Height~(mm)), padj = -1.8)
 
-text(01, 060, "c", cex = 1.2)
-text(01, 125, "c", cex = 1.2)
+text(01, 130, "A", cex = 1.2)
+# text(01, 125, "c", cex = 1.2)
 
-text(02, 020, "ab", cex = 1.2)
-text(02, 070, "ab", cex = 1.2)
+text(02, 80, "A", cex = 1.2)
+# text(02, 070, "ab", cex = 1.2)
 
-text(03, 085, "b", cex = 1.2)
-text(03, 020, "a", cex = 1.2)
+text(03, 100, "B", cex = 1.2)
+# text(03, 020, "a", cex = 1.2)
 
 # g) pha ht Short ####
 
 dum<-subset(sin, Species == "Pha" & Phase == "Control" & Experiment == "Short")
 par(new=T)
-plotCI(05, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "dodgerblue4",
+plotCI(05, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Control" & Experiment == "Short")
 par(new=T)
-plotCI(05, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "dodgerblue4",
+plotCI(05, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Resistance" & Experiment == "Short")
 par(new=T)
-plotCI(06, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "firebrick",
+plotCI(06, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Resistance" & Experiment == "Short")
 par(new=T)
-plotCI(06, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "firebrick",
+plotCI(06, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Recovery" & Experiment == "Short")
 par(new=T)
-plotCI(07, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "orange3",
+plotCI(07, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Recovery" & Experiment == "Short")
 par(new=T)
-plotCI(07, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "orange3",
+plotCI(07, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
-text(05, 215, "c", cex = 1.2)
-text(05, 145, "c", cex = 1.2)
+text(05, 215, "C", cex = 1.2)
+# text(05, 145, "c", cex = 1.2)
 
-text(06, 005, "a", cex = 1.2)
-text(06, 070, "ab", cex = 1.2)
+# text(06, 005, "a", cex = 1.2)
+text(06, 070, "A", cex = 1.2)
 
-text(07, 110, "b", cex = 1.2)
-text(07, 015, "ab", cex = 1.2)
+text(07, 110, "B", cex = 1.2)
+# text(07, 015, "ab", cex = 1.2)
 
 
 # g) lol ht Short ####
 
 dum<-subset(sin, Species == "Rye" & Phase == "Control" & Experiment == "Short")
 par(new=T)
-plotCI(09, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "dodgerblue4",
+plotCI(09, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Control" & Experiment == "Short")
 par(new=T)
-plotCI(09, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "dodgerblue4",
+plotCI(09, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Rye" & Phase == "Resistance" & Experiment == "Short")
 par(new=T)
-plotCI(10, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "firebrick",
+plotCI(10, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Resistance" & Experiment == "Short")
 par(new=T)
-plotCI(10, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "firebrick",
+plotCI(10, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Rye" & Phase == "Recovery" & Experiment == "Short")
 par(new=T)
-plotCI(11, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "orange3",
+plotCI(11, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Recovery" & Experiment == "Short")
 par(new=T)
-plotCI(11, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "orange3",
+plotCI(11, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 box()
 
 text(09, 150, "B", cex = 1.2)
 text(10, 110, "A", cex = 1.2)
-text(11, 110, "A", cex = 1.2)
+text(11, 110, "B", cex = 1.2)
 
 # h) fes ht Long ####
 
@@ -966,29 +966,29 @@ abline(v = c(4,8), lty = 2, col = "grey")
 
 dum<-subset(sin, Species == "Fes" & Phase == "Control" & Experiment == "Long")
 par(new=T)
-plotCI(01, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "dodgerblue4",
+plotCI(01, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Control" & Experiment == "Long")
 par(new=T)
-plotCI(01, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "dodgerblue4",
+plotCI(01, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Resistance" & Experiment == "Long")
 par(new=T)
-plotCI(02, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "firebrick",
+plotCI(02, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Resistance" & Experiment == "Long")
 par(new=T)
-plotCI(02, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "firebrick",
+plotCI(02, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Recovery" & Experiment == "Long")
 par(new=T)
-plotCI(03, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "orange3",
+plotCI(03, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Recovery" & Experiment == "Long")
 par(new=T)
-plotCI(03, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "orange3",
+plotCI(03, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 legend("topleft", "h)", bty = "n", cex = 1.2)
@@ -1001,79 +1001,79 @@ text(03, 130, "AB", cex = 1.2)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Control" & Experiment == "Long")
 par(new=T)
-plotCI(05, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "dodgerblue4",
+plotCI(05, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Control" & Experiment == "Long")
 par(new=T)
-plotCI(05, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "dodgerblue4",
+plotCI(05, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Resistance" & Experiment == "Long")
 par(new=T)
-plotCI(06, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "firebrick",
+plotCI(06, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Resistance" & Experiment == "Long")
 par(new=T)
-plotCI(06, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "firebrick",
+plotCI(06, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Recovery" & Experiment == "Long")
 par(new=T)
-plotCI(07, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "orange3",
+plotCI(07, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Recovery" & Experiment == "Long")
 par(new=T)
-plotCI(07, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "orange3",
+plotCI(07, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
-text(05, 150, "ab", cex = 1.2)
-text(05, 230, "ab", cex = 1.2)
+# text(05, 150, "ab", cex = 1.2)
+text(05, 235, "B", cex = 1.2)
 
-text(06, 150, "a", cex = 1.2)
-text(06, 005, "a", cex = 1.2)
+text(06, 110, "A", cex = 1.2)
+# text(06, 005, "a", cex = 1.2)
 
-text(6.7, 318, "b", cex = 1.2)
-text(07, 070, "a", cex = 1.2)
+text(07, 250, "B", cex = 1.2)
+# text(07, 070, "a", cex = 1.2)
 
 
 # h) lol ht Long ####
 
 dum<-subset(sin, Species == "Rye" & Phase == "Control" & Experiment == "Long")
 par(new=T)
-plotCI(09, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "dodgerblue4",
+plotCI(09, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Control" & Experiment == "Long")
 par(new=T)
-plotCI(09, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "dodgerblue4",
+plotCI(09, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Rye" & Phase == "Resistance" & Experiment == "Long")
 par(new=T)
-plotCI(10, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "firebrick",
+plotCI(10, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Resistance" & Experiment == "Long")
 par(new=T)
-plotCI(10, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "firebrick",
+plotCI(10, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Rye" & Phase == "Recovery" & Experiment == "Long")
 par(new=T)
-plotCI(11, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "orange3",
+plotCI(11, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Recovery" & Experiment == "Long")
 par(new=T)
-plotCI(11, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "orange3",
+plotCI(11, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 box()
 
-text(09, 060, "ab", cex = 1.2)
-text(09, 130, "ab", cex = 1.2)
+text(09, 060, "abc", cex = 1.2)
+text(09, 130, "abc", cex = 1.2)
 
-text(10, 100, "ab", cex = 1.2)
+text(10, 100, "b", cex = 1.2)
 text(10, 005, "a", cex = 1.2)
 
-text(11, 130, "b", cex = 1.2)
-text(11, 040, "ab", cex = 1.2)
+text(11, 140, "c", cex = 1.2)
+text(11, 60, "c", cex = 1.2)
 
 
 
@@ -1092,102 +1092,104 @@ abline(v = c(4,8), lty = 2, col = "grey")
 
 dum<-subset(sin, Species == "Fes" & Phase == "Control" & Experiment == "Double")
 par(new=T)
-plotCI(01, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "dodgerblue4",
+plotCI(01, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Control" & Experiment == "Double")
 par(new=T)
-plotCI(01, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "dodgerblue4",
+plotCI(01, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Resistance" & Experiment == "Double")
 par(new=T)
-plotCI(02, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "firebrick",
+plotCI(02, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Resistance" & Experiment == "Double")
 par(new=T)
-plotCI(02, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "firebrick",
+plotCI(02, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Fes" & Phase == "Recovery" & Experiment == "Double")
 par(new=T)
-plotCI(03, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 1, col = "orange3",
+plotCI(03, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 1, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Fes" & Phase == "Recovery" & Experiment == "Double")
 par(new=T)
-plotCI(03, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 16, col = "orange3",
+plotCI(03, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 16, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 legend("topleft", "i)", bty = "n", cex = 1.2)
 
-text(01, 060, "b", cex = 1.2)
-text(01, 130, "b", cex = 1.2)
+text(01, 060, "bc", cex = 1.2)
+text(01, 130, "c", cex = 1.2)
 
-text(02, 100, "b", cex = 1.2)
+text(02, 90, "ab", cex = 1.2)
 text(02, 005, "a", cex = 1.2)
 
-text(03, 130, "b", cex = 1.2)
-text(03, 040, "b", cex = 1.2)
+text(03, 130, "c", cex = 1.2)
+text(03, 040, "bc", cex = 1.2)
+
+
 
 # i) pha ht Double ####
 
 dum<-subset(sin, Species == "Pha" & Phase == "Control" & Experiment == "Double")
 par(new=T)
-plotCI(05, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "dodgerblue4",
+plotCI(05, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Control" & Experiment == "Double")
 par(new=T)
-plotCI(05, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "dodgerblue4",
+plotCI(05, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Resistance" & Experiment == "Double")
 par(new=T)
-plotCI(06, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "firebrick",
+plotCI(06, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Resistance" & Experiment == "Double")
 par(new=T)
-plotCI(06, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "firebrick",
+plotCI(06, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Pha" & Phase == "Recovery" & Experiment == "Double")
 par(new=T)
-plotCI(07, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 0, col = "orange3",
+plotCI(07, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 0, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Pha" & Phase == "Recovery" & Experiment == "Double")
 par(new=T)
-plotCI(07, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 15, col = "orange3",
+plotCI(07, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 15, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 text(05, 250, "C", cex = 1.2)
-text(06, 100, "A", cex = 1.2)
+text(06, 80, "A", cex = 1.2)
 text(07, 200, "B", cex = 1.2)
 
 # i) lol ht Double ####
 
 dum<-subset(sin, Species == "Rye" & Phase == "Control" & Experiment == "Double")
 par(new=T)
-plotCI(09, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "dodgerblue4",
+plotCI(09, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Control" & Experiment == "Double")
 par(new=T)
-plotCI(09, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "dodgerblue4",
+plotCI(09, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "dodgerblue4",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Rye" & Phase == "Resistance" & Experiment == "Double")
 par(new=T)
-plotCI(10, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "firebrick",
+plotCI(10, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Resistance" & Experiment == "Double")
 par(new=T)
-plotCI(10, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "firebrick",
+plotCI(10, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "firebrick",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 
 dum<-subset(sin, Species == "Rye" & Phase == "Recovery" & Experiment == "Double")
 par(new=T)
-plotCI(11, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 2, col = "orange3",
+plotCI(11, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 2, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 dum<-subset(mix, Species == "Rye" & Phase == "Recovery" & Experiment == "Double")
 par(new=T)
-plotCI(11, dum$Ht_mm.mean, dum$Ht_mm.std.error, err="y", pch = 17, col = "orange3",
+plotCI(11, dum$Ht_cm.mean, dum$Ht_cm.std.error, err="y", pch = 17, col = "orange3",
        xlim = c(xl,xu), ylim = c(yl,yu), axes = F, xlab = "", ylab = "", sfrac = 0, cex = 1.3)
 box()
 

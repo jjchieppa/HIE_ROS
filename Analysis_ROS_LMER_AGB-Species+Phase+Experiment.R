@@ -13,7 +13,7 @@ df$Shelter<-as.factor(df$Shelter)
 
 # select and run ####
 df<-subset(df, Species == "Rye" & Experiment == "Double")
-df$x<-(df$Ht_mm)
+df$x<-(df$Ht_cm)
 
 # leveneTest((x) ~ Phase * Type, center = mean, df)
 

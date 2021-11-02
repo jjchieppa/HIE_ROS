@@ -8,20 +8,20 @@ df<-read.csv("ROS_competition_data_all.csv")
 df<-subset(df, Phase != "Control")
 
 # df<-subset(df, Experiment == "Long")
-df$x<-df$Ht_mm
-# df<-subset(df, Species == "Pha")
+df$x<-df$Ht_cm
+df<-subset(df, Species == "Fes")
 
 df<-df[complete.cases(df$x),]
 
 
-all<-psem(
-  lme(x ~ PhaseNum, random = list(~1|Experiment,~1|Species), method = "ML", df),
-  lme(CompEffect ~ x, random = list(~1|Experiment,~1|Species), method = "ML", df)
-)
-# all_dro<-psem(
-#   lme(x ~ PhaseNum, random = ~1|Experiment, method = "ML", df),
-#   lme(CompEffect ~ x, random = ~1|Experiment, method = "ML", df)
+# all<-psem(
+#   lme(x ~ PhaseNum, random = list(~1|Experiment,~1|Species), method = "ML", df),
+#   lme(CompEffect ~ x, random = list(~1|Experiment,~1|Species), method = "ML", df)
 # )
+all_dro<-psem(
+  lme(x ~ PhaseNum, random = ~1|Experiment, method = "ML", df),
+  lme(CompEffect ~ x, random = ~1|Experiment, method = "ML", df)
+)
 # all_spp<-psem(
 #   lme(x ~ PhaseNum, random = ~1|Species, method = "ML", df),
 #   lme(CompEffect ~ x, random = ~1|Species, method = "ML", df)
@@ -33,8 +33,8 @@ all<-psem(
 
 
 # cat("\f")
-summary(all, df, standarize.type = "latent.linear")
-# summary(all_dro, df, standarize.type = "latent.linear")
+# summary(all, df, standarize.type = "latent.linear")
+summary(all_dro, df, standarize.type = "latent.linear")
 # summary(all_spp, df, standarize.type = "latent.linear")
 # summary(specific, df, standarize.type = "latent.linear")
 

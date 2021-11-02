@@ -1,5 +1,7 @@
-setwd("F:/Dropbox backup/HIE PhD/Data/Thesis analyses/ROS/Formal Analysis/Manuscript Analysis")
-# rm(list=ls()); dev.off(); cat("\f") # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+# start ####
+rm(list=ls()) # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+dev.off()     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+cat("\f")     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 library(lubridate)
 library(chron); library(reshape)
@@ -9,8 +11,7 @@ library(stringr)
 install_bitbucket("remkoduursma/HIEv"); 
 setToken("TBLyLbiGFy8foqw8Qq4N")
 
-############################################################################
-############################################################################ HIEv download
+# HIEv download ####
 
 # # # generate start and end dates
 start_date = '2018-06-20'; end_date = '2018-10-31'
