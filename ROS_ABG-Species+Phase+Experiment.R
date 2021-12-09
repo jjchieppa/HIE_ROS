@@ -9,7 +9,7 @@ cat("\f")     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 # start ####
 
-tiff(file = "ROS_ABG-Species+Phase+Experiment.tiff", height = 10, width = 12, res = 600, units = "in", compression = "zip+p")
+tiff(file = "ROS_ABG-Species+Phase+Experiment.tiff", height = 10, width = 12, res = 400, units = "in", compression = "zip+p")
 
 xx<-c(-500,500); yy<-c(-500,500)
 

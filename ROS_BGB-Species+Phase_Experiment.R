@@ -8,7 +8,7 @@ cat("\f")     # ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
 
 # start ####
 
-tiff(file = "ROS_BGB-Species+Phase_Experiment.tiff", height = 10, width = 12, res = 600, units = "in", compression = "zip+p")
+tiff(file = "ROS_BGB-Species+Phase_Experiment.tiff", height = 10, width = 12, res = 400, units = "in", compression = "zip+p")
 xx<-c(-500,500); yy<-c(-500,500)
 
 par(mfrow = c(3,4), mar = c(1,0,0,0), omi = c(1.5,1,0.5,0.5))
